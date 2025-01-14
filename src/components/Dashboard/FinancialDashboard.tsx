@@ -13,7 +13,14 @@ import { DEFAULT_INITIAL_INVESTMENT, WINNING_GOAL } from '@/lib/constants';
 import { UserAccount } from '@/lib/types';
 import { Switch } from '../ui/switch';
 import backgroundTexture from './bgg.png';
-import { fetchStockData, fetchIntradayData, connectWebSocket, disconnectWebSocket } from '@/app/api/stock-proxy/route';
+//import { fetchStockData, fetchIntradayData, connectWebSocket, disconnectWebSocket } from '@/app/api/stock-proxy/route';
+// In your components, update the import path
+import { 
+  fetchStockData, 
+  fetchIntradayData, 
+  connectWebSocket, 
+  disconnectWebSocket 
+} from '@/lib/stockApi';
 
 // Types
 interface Stock {
