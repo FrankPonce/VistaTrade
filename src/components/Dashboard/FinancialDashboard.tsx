@@ -13,6 +13,9 @@ import { DEFAULT_INITIAL_INVESTMENT, WINNING_GOAL } from '@/lib/constants';
 import { UserAccount } from '@/lib/types';
 import { Switch } from '../ui/switch';
 import backgroundTexture from './bgg.png';
+import safeStorage from '@/utils/safeStorage';
+
+
 //import { fetchStockData, fetchIntradayData, connectWebSocket, disconnectWebSocket } from '@/app/api/stock-proxy/route';
 // In your components, update the import path
 import { 
@@ -66,7 +69,7 @@ const FinancialDashboard = () => {
   
   // State Management
   const [userAccount, setUserAccount] = useState(() => {
-    const stored = localStorage.getItem('userAccount');
+    const stored = safeStorage.getItem('userAccount');
     return stored ? JSON.parse(stored) : {
       cash: DEFAULT_INITIAL_INVESTMENT,
       initialInvestment: DEFAULT_INITIAL_INVESTMENT,
@@ -76,18 +79,18 @@ const FinancialDashboard = () => {
   });
 
   const [portfolio, setPortfolio] = useState<PortfolioStock[]>(() => {
-    const stored = localStorage.getItem('portfolio');
+    const stored = safeStorage.getItem('portfolio');
     return stored ? JSON.parse(stored) : [];
   });
 
   const [transactions, setTransactions] = useState<Transaction[]>(() => {
-    const stored = localStorage.getItem('transactions');
+    const stored = safeStorage.getItem('transactions');
     return stored ? JSON.parse(stored) : [];
   });
 
   const [selectedStock, setSelectedStock] = useState('AAPL');
   const [showTradeModal, setShowTradeModal] = useState(false);
-  const [showTutorial, setShowTutorial] = useState(() => !localStorage.getItem('tutorialComplete'));
+  const [showTutorial, setShowTutorial] = useState(() => !safeStorage.getItem('tutorialComplete'));
 
   const [currentPrices, setCurrentPrices] = useState<Record<string, number>>({});
   const [tradeShares, setTradeShares] = useState(1);
@@ -363,9 +366,9 @@ const updateUserAccount = (prev: typeof userAccount) => ({
   }, [selectedStock, useRealTimeAPI, generateChartData]);
 
   useEffect(() => {
-    localStorage.setItem('userAccount', JSON.stringify(userAccount));
-    localStorage.setItem('portfolio', JSON.stringify(portfolio));
-    localStorage.setItem('transactions', JSON.stringify(transactions));
+    safeStorage.setItem('userAccount', JSON.stringify(userAccount));
+    safeStorage.setItem('portfolio', JSON.stringify(portfolio));
+    safeStorage.setItem('transactions', JSON.stringify(transactions));
   }, [userAccount, portfolio, transactions]);
 
   // Trading Functions
