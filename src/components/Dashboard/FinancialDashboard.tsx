@@ -847,7 +847,7 @@ const updateUserAccount = (prev: typeof userAccount) => ({
       {showTutorial && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
           <div className="glass-card bg-black/40 backdrop-blur-xl rounded-3xl p-8 border border-white/10 max-w-2xl w-full mx-4">
-            <h2 className="text-2xl font-bold text-white mb-6">Welcome to the Trading Dashboard</h2>
+            <h2 className="text-2xl font-bold text-white mb-6">Welcome to Vista Trade!</h2>
             
             <div className="space-y-4 text-gray-300">
               <p>Here's how to get started:</p>
