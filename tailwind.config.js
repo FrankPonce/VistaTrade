@@ -1,77 +1,41 @@
 /** @type {import('tailwindcss').Config} */
+//
+// VistaTrade "Miami Vice at night" palette.
+// Black canvas, faintly purple glass panels, and two neon poles toned down
+// a notch: teal (gains, buy) and pink (losses, sell). Purple is the brand glue.
 module.exports = {
-    darkMode: ["class"],
-    content: [
-      './pages/**/*.{ts,tsx}',
-      './components/**/*.{ts,tsx}',
-      './app/**/*.{ts,tsx}',
-      './src/**/*.{ts,tsx}',
-    ],
-    theme: {
-      container: {
-        center: true,
-        padding: "2rem",
-        screens: {
-          "2xl": "1400px",
+  content: ['./src/**/*.{ts,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        ink: '#000000',
+        panel: 'rgb(var(--panel) / <alpha-value>)',
+        edge: 'rgb(var(--edge) / <alpha-value>)',
+        text: '#F2EDF7',
+        muted: '#9D94AA',
+        faint: '#5E566B',
+        vice: {
+          pink: '#F0609E',
+          teal: '#3CCFC6',
+          purple: '#9B6BFF',
+          sunset: '#F7A072',
         },
+        up: '#3CCFC6',
+        down: '#F0609E',
       },
-      extend: {
-        colors: {
-          border: "hsl(var(--border))",
-          input: "hsl(var(--input))",
-          ring: "hsl(var(--ring))",
-          background: "hsl(var(--background))",
-          foreground: "hsl(var(--foreground))",
-          primary: {
-            DEFAULT: "hsl(var(--primary))",
-            foreground: "hsl(var(--primary-foreground))",
-          },
-          secondary: {
-            DEFAULT: "hsl(var(--secondary))",
-            foreground: "hsl(var(--secondary-foreground))",
-          },
-          destructive: {
-            DEFAULT: "hsl(var(--destructive))",
-            foreground: "hsl(var(--destructive-foreground))",
-          },
-          muted: {
-            DEFAULT: "hsl(var(--muted))",
-            foreground: "hsl(var(--muted-foreground))",
-          },
-          accent: {
-            DEFAULT: "hsl(var(--accent))",
-            foreground: "hsl(var(--accent-foreground))",
-          },
-          popover: {
-            DEFAULT: "hsl(var(--popover))",
-            foreground: "hsl(var(--popover-foreground))",
-          },
-          card: {
-            DEFAULT: "hsl(var(--card))",
-            foreground: "hsl(var(--card-foreground))",
-          },
-        },
-        borderRadius: {
-          lg: "var(--radius)",
-          md: "calc(var(--radius) - 2px)",
-          sm: "calc(var(--radius) - 4px)",
-        },
-        keyframes: {
-          "accordion-down": {
-            from: { height: 0 },
-            to: { height: "var(--radix-accordion-content-height)" },
-          },
-          "accordion-up": {
-            from: { height: "var(--radix-accordion-content-height)" },
-            to: { height: 0 },
-          },
-        },
-        animation: {
-          "accordion-down": "accordion-down 0.2s ease-out",
-          "accordion-up": "accordion-up 0.2s ease-out",
-        },
+      fontFamily: {
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-display)', 'var(--font-inter)', 'sans-serif'],
+        script: ['var(--font-script)', 'cursive'],
+      },
+      borderRadius: {
+        panel: '18px',
+      },
+      boxShadow: {
+        glass: 'inset 0 1px 0 0 rgb(255 255 255 / 0.04), 0 0 0 1px rgb(var(--edge) / 0.22), 0 12px 40px -12px rgb(var(--edge) / 0.18)',
+        glow: '0 0 24px -4px rgb(var(--edge) / 0.45)',
       },
     },
-    plugins: [require("tailwindcss-animate")],
-  }
-  
+  },
+  plugins: [],
+};

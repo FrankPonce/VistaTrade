@@ -1,4 +1,13 @@
 /node_modules/*
 /.next/*
 .next
-.env.local
+
+# Secrets: never commit real env files (use .env.example as the template)
+.env
+.env*.local
+.env.production
+tsconfig.tsbuildinfo
+/ml/.venv
+/ml/data
+__pycache__
+*.pyc

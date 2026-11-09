@@ -3,68 +3,82 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 1;
-  --background-end-rgb: 0, 0, 0;
+  /* Panel fill: near-black with a hint of purple. Edge: the purple rim. */
+  --panel: 20 12 30;
+  --edge: 155 107 255;
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: #000;
+  color: #f2edf7;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgb(var(--background-end-rgb))
-  )
-  rgb(var(--background-start-rgb));
+  @apply font-sans text-text antialiased;
+  min-height: 100dvh;
 }
 
-@layer base {
-  :root {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
-  }
+/* Very faint sunset haze far behind everything: atmosphere, not decoration. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60rem 30rem at 85% -10%, rgb(240 96 158 / 0.07), transparent 60%),
+    radial-gradient(50rem 30rem at -10% 110%, rgb(60 207 198 / 0.05), transparent 60%);
 }
 
-@layer utilities {
-  @keyframes fadeSlideIn {
-    0% {
-      opacity: 0;
-      transform: translateY(20px); /* Adjust for slide-in from bottom */
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+@layer components {
+  /* The core glass panel. Edges are more purple than the fill. */
+  .glass {
+    @apply rounded-panel bg-panel/60 shadow-glass backdrop-blur-xl;
   }
-
-  .fade-slide-in {
-    animation: fadeSlideIn 0.5s ease-out forwards; /* Adjust duration and timing */
+  .glass-hover {
+    @apply transition-shadow duration-200 hover:shadow-glow;
   }
-
-  .glass-card {
-    @apply bg-stone-500/5 backdrop-blur-sm border border-white/20 rounded-xl;
-    transition: all 0.3s ease;
+  .label {
+    @apply text-xs font-medium uppercase tracking-[0.12em] text-muted;
   }
-
-  .glass-card:hover {
-    transform: translateY(-2px);
-    @apply border-white/70 backdrop-blur-xl bg-white/5;
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-medium transition
+      disabled:cursor-not-allowed disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vice-purple/70;
+  }
+  .btn-ghost {
+    @apply btn border border-edge/25 bg-white/[0.03] text-text hover:bg-white/[0.07];
+  }
+  .btn-buy {
+    @apply btn bg-vice-teal text-black hover:bg-vice-teal/90;
+  }
+  .btn-sell {
+    @apply btn bg-vice-pink text-black hover:bg-vice-pink/90;
+  }
+  .btn-primary {
+    @apply btn bg-vice-purple text-white hover:bg-vice-purple/90;
+  }
+  .input {
+    @apply w-full rounded-xl border border-edge/25 bg-black/40 px-3 py-2 text-sm text-text placeholder:text-faint
+      focus:border-vice-purple/70 focus:outline-none focus:ring-2 focus:ring-vice-purple/30;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full border border-edge/25 px-2.5 py-0.5 text-xs text-muted;
+  }
+  .prose-lesson p {
+    @apply mb-4 leading-7 text-text/90;
+  }
+  .prose-lesson h3 {
+    @apply mb-2 mt-6 text-lg font-semibold text-text;
+  }
+  .prose-lesson ul {
+    @apply mb-4 list-disc space-y-1 pl-5 text-text/90;
+  }
+  .prose-lesson strong {
+    @apply font-semibold text-text;
   }
 }

@@ -1,0 +1,418 @@
+{
+  "generatedAt": "2026-11-09T23:21:19+00:00",
+  "dataThrough": "2026-11-10",
+  "sample": true,
+  "model": {
+    "name": "LightGBM quantile regression (pooled across stocks)",
+    "features": [
+      "ret_1",
+      "ret_2",
+      "ret_5",
+      "ret_10",
+      "ret_20",
+      "vol_5",
+      "vol_20",
+      "volume_ratio",
+      "rsi_14",
+      "dist_ma_20",
+      "dist_ma_50",
+      "range_pct",
+      "mkt_ret_1",
+      "mkt_ret_5",
+      "mkt_vol_20",
+      "day_of_week"
+    ],
+    "notes": "Walk-forward: first 756 trading days for training, retrained every 63 days, with an h-day embargo between training and test data."
+  },
+  "backtest": {
+    "start": "2019-02-01",
+    "end": "2026-11-03",
+    "folds": 33,
+    "horizons": {
+      "1": {
+        "model": {
+          "directionAcc": 0.4972000888077559,
+          "mae": 0.013219349561828358
+        },
+        "baselines": {
+          "noChange": {
+            "mae": 0.0131015557796591
+          },
+          "alwaysUp": {
+            "directionAcc": 0.510619927473666,
+            "mae": 0.013098791981887372
+          }
+        },
+        "intervalCoverage": 0.7846165231763574,
+        "edgeVsAlwaysUpCI95": [
+          -0.02894615880881668,
+          0.001865533573437266
+        ],
+        "n": 40537
+      },
+      "5": {
+        "model": {
+          "directionAcc": 0.5065378055713473,
+          "mae": 0.03127222348864638
+        },
+        "baselines": {
+          "noChange": {
+            "mae": 0.0309278086225168
+          },
+          "alwaysUp": {
+            "directionAcc": 0.5207998615814321,
+            "mae": 0.03090503224580997
+          }
+        },
+        "intervalCoverage": 0.7785055738191166,
+        "edgeVsAlwaysUpCI95": [
+          -0.04013443052838176,
+          0.008080336183526035
+        ],
+        "n": 40457
+      }
+    }
+  },
+  "forecasts": [
+    {
+      "symbol": "AAPL",
+      "asOf": "2026-11-10",
+      "lastClose": 110.62118795701433,
+      "horizons": {
+        "1": {
+          "predReturn": 0.000198,
+          "low": -0.016898,
+          "high": 0.017435
+        },
+        "5": {
+          "predReturn": -0.002659,
+          "low": -0.041271,
+          "high": 0.032333
+        }
+      }
+    },
+    {
+      "symbol": "MSFT",
+      "asOf": "2026-11-10",
+      "lastClose": 762.1850966055389,
+      "horizons": {
+        "1": {
+          "predReturn": 0.00067,
+          "low": -0.013357,
+          "high": 0.013737
+        },
+        "5": {
+          "predReturn": -0.001289,
+          "low": -0.030749,
+          "high": 0.03007
+        }
+      }
+    },
+    {
+      "symbol": "NVDA",
+      "asOf": "2026-11-10",
+      "lastClose": 136.35317535171808,
+      "horizons": {
+        "1": {
+          "predReturn": 0.000208,
+          "low": -0.019969,
+          "high": 0.021343
+        },
+        "5": {
+          "predReturn": 0.000126,
+          "low": -0.041928,
+          "high": 0.045028
+        }
+      }
+    },
+    {
+      "symbol": "GOOGL",
+      "asOf": "2026-11-10",
+      "lastClose": 220.20236600446884,
+      "horizons": {
+        "1": {
+          "predReturn": 0.000416,
+          "low": -0.02051,
+          "high": 0.022084
+        },
+        "5": {
+          "predReturn": -0.000617,
+          "low": -0.047609,
+          "high": 0.048247
+        }
+      }
+    },
+    {
+      "symbol": "META",
+      "asOf": "2026-11-10",
+      "lastClose": 218.0855372789546,
+      "horizons": {
+        "1": {
+          "predReturn": 0.000163,
+          "low": -0.01706,
+          "high": 0.017197
+        },
+        "5": {
+          "predReturn": -0.003029,
+          "low": -0.041654,
+          "high": 0.031867
+        }
+      }
+    },
+    {
+      "symbol": "AMZN",
+      "asOf": "2026-11-10",
+      "lastClose": 205.42378973180527,
+      "horizons": {
+        "1": {
+          "predReturn": 0.000156,
+          "low": -0.017431,
+          "high": 0.017145
+        },
+        "5": {
+          "predReturn": -0.002573,
+          "low": -0.042089,
+          "high": 0.033317
+        }
+      }
+    },
+    {
+      "symbol": "TSLA",
+      "asOf": "2026-11-10",
+      "lastClose": 109.59000339083393,
+      "horizons": {
+        "1": {
+          "predReturn": 0.000402,
+          "low": -0.017854,
+          "high": 0.018265
+        },
+        "5": {
+          "predReturn": -0.002181,
+          "low": -0.043204,
+          "high": 0.035355
+        }
+      }
+    },
+    {
+      "symbol": "NFLX",
+      "asOf": "2026-11-10",
+      "lastClose": 279.7805607701772,
+      "horizons": {
+        "1": {
+          "predReturn": -3e-05,
+          "low": -0.019137,
+          "high": 0.020148
+        },
+        "5": {
+          "predReturn": -0.00396,
+          "low": -0.045094,
+          "high": 0.0401
+        }
+      }
+    },
+    {
+      "symbol": "DIS",
+      "asOf": "2026-11-10",
+      "lastClose": 271.61659488024037,
+      "horizons": {
+        "1": {
+          "predReturn": 0.000228,
+          "low": -0.015358,
+          "high": 0.01589
+        },
+        "5": {
+          "predReturn": -0.00273,
+          "low": -0.035607,
+          "high": 0.034198
+        }
+      }
+    },
+    {
+      "symbol": "NKE",
+      "asOf": "2026-11-10",
+      "lastClose": 57.77472101574238,
+      "horizons": {
+        "1": {
+          "predReturn": 0.00013,
+          "low": -0.022261,
+          "high": 0.022286
+        },
+        "5": {
+          "predReturn": -0.001809,
+          "low": -0.049945,
+          "high": 0.050902
+        }
+      }
+    },
+    {
+      "symbol": "KO",
+      "asOf": "2026-11-10",
+      "lastClose": 219.93831817435498,
+      "horizons": {
+        "1": {
+          "predReturn": 0.00036,
+          "low": -0.014202,
+          "high": 0.013955
+        },
+        "5": {
+          "predReturn": -0.000791,
+          "low": -0.031791,
+          "high": 0.029224
+        }
+      }
+    },
+    {
+      "symbol": "WMT",
+      "asOf": "2026-11-10",
+      "lastClose": 610.5470739616508,
+      "horizons": {
+        "1": {
+          "predReturn": 9.7e-05,
+          "low": -0.01553,
+          "high": 0.017053
+        },
+        "5": {
+          "predReturn": -0.002973,
+          "low": -0.03744,
+          "high": 0.032973
+        }
+      }
+    },
+    {
+      "symbol": "JPM",
+      "asOf": "2026-11-10",
+      "lastClose": 153.29464170233013,
+      "horizons": {
+        "1": {
+          "predReturn": 1.9e-05,
+          "low": -0.017224,
+          "high": 0.017775
+        },
+        "5": {
+          "predReturn": -0.002542,
+          "low": -0.038801,
+          "high": 0.037397
+        }
+      }
+    },
+    {
+      "symbol": "V",
+      "asOf": "2026-11-10",
+      "lastClose": 199.4757699414148,
+      "horizons": {
+        "1": {
+          "predReturn": 9e-05,
+          "low": -0.01978,
+          "high": 0.020151
+        },
+        "5": {
+          "predReturn": -0.002176,
+          "low": -0.044482,
+          "high": 0.044731
+        }
+      }
+    },
+    {
+      "symbol": "JNJ",
+      "asOf": "2026-11-10",
+      "lastClose": 207.45794731655002,
+      "horizons": {
+        "1": {
+          "predReturn": 0.000372,
+          "low": -0.019533,
+          "high": 0.020526
+        },
+        "5": {
+          "predReturn": -0.002814,
+          "low": -0.04579,
+          "high": 0.044554
+        }
+      }
+    },
+    {
+      "symbol": "UNH",
+      "asOf": "2026-11-10",
+      "lastClose": 1277.4062554812594,
+      "horizons": {
+        "1": {
+          "predReturn": -0.000163,
+          "low": -0.019994,
+          "high": 0.021138
+        },
+        "5": {
+          "predReturn": -0.002972,
+          "low": -0.046447,
+          "high": 0.042215
+        }
+      }
+    },
+    {
+      "symbol": "XOM",
+      "asOf": "2026-11-10",
+      "lastClose": 583.7221561623946,
+      "horizons": {
+        "1": {
+          "predReturn": 0.000374,
+          "low": -0.023647,
+          "high": 0.022464
+        },
+        "5": {
+          "predReturn": -0.003044,
+          "low": -0.051108,
+          "high": 0.052698
+        }
+      }
+    },
+    {
+      "symbol": "CAT",
+      "asOf": "2026-11-10",
+      "lastClose": 410.7065939873165,
+      "horizons": {
+        "1": {
+          "predReturn": 5.3e-05,
+          "low": -0.023682,
+          "high": 0.021849
+        },
+        "5": {
+          "predReturn": -0.002749,
+          "low": -0.052601,
+          "high": 0.052546
+        }
+      }
+    },
+    {
+      "symbol": "SPY",
+      "asOf": "2026-11-10",
+      "lastClose": 363.41823447328363,
+      "horizons": {
+        "1": {
+          "predReturn": 0.000479,
+          "low": -0.024015,
+          "high": 0.022924
+        },
+        "5": {
+          "predReturn": -0.001926,
+          "low": -0.047464,
+          "high": 0.046647
+        }
+      }
+    },
+    {
+      "symbol": "QQQ",
+      "asOf": "2026-11-10",
+      "lastClose": 833.3172767898706,
+      "horizons": {
+        "1": {
+          "predReturn": -0.000358,
+          "low": -0.022297,
+          "high": 0.020776
+        },
+        "5": {
+          "predReturn": -0.002335,
+          "low": -0.051931,
+          "high": 0.046952
+        }
+      }
+    }
+  ]
+}

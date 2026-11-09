@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-11-09T23:21:19+00:00",
+  "dataThrough": "2026-11-10",
+  "model": {
+    "name": "LightGBM quantile regression (pooled across stocks)",
+    "features": [
+      "ret_1",
+      "ret_2",
+      "ret_5",
+      "ret_10",
+      "ret_20",
+      "vol_5",
+      "vol_20",
+      "volume_ratio",
+      "rsi_14",
+      "dist_ma_20",
+      "dist_ma_50",
+      "range_pct",
+      "mkt_ret_1",
+      "mkt_ret_5",
+      "mkt_vol_20",
+      "day_of_week"
+    ],
+    "notes": "Walk-forward: first 756 trading days for training, retrained every 63 days, with an h-day embargo between training and test data."
+  },
+  "backtest": {
+    "start": "2019-02-01",
+    "end": "2026-11-03",
+    "folds": 33,
+    "horizons": {
+      "1": {
+        "model": {
+          "directionAcc": 0.4972000888077559,
+          "mae": 0.013219349561828358
+        },
+        "baselines": {
+          "noChange": {
+            "mae": 0.0131015557796591
+          },
+          "alwaysUp": {
+            "directionAcc": 0.510619927473666,
+            "mae": 0.013098791981887372
+          }
+        },
+        "intervalCoverage": 0.7846165231763574,
+        "edgeVsAlwaysUpCI95": [
+          -0.02894615880881668,
+          0.001865533573437266
+        ],
+        "n": 40537
+      },
+      "5": {
+        "model": {
+          "directionAcc": 0.5065378055713473,
+          "mae": 0.03127222348864638
+        },
+        "baselines": {
+          "noChange": {
+            "mae": 0.0309278086225168
+          },
+          "alwaysUp": {
+            "directionAcc": 0.5207998615814321,
+            "mae": 0.03090503224580997
+          }
+        },
+        "intervalCoverage": 0.7785055738191166,
+        "edgeVsAlwaysUpCI95": [
+          -0.04013443052838176,
+          0.008080336183526035
+        ],
+        "n": 40457
+      }
+    }
+  }
+}
