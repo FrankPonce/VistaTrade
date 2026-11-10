@@ -139,6 +139,14 @@ export const useStore = create<SavedState & Actions>()(
   )
 );
 
+// Keep tabs in sync: when another tab saves, reload its state here instead of
+// overwriting it with this tab's stale copy on the next price tick.
+if (typeof window !== 'undefined') {
+  window.addEventListener('storage', (e) => {
+    if (e.key === useStore.persist.getOptions().name) useStore.persist.rehydrate();
+  });
+}
+
 /** True once saved state has loaded from localStorage, so we don't flash default values. */
 export function useHydrated(): boolean {
   const [hydrated, setHydrated] = useState(false);

@@ -168,11 +168,11 @@ function SymbolForecast({ symbol }: { symbol: string }) {
       <div className="space-y-4">
         <div>
           <p className="mb-1 text-xs text-muted">Next trading day</p>
-          <ForecastRange f={f.horizons['1']} scale={4} />
+          <ForecastRange f={f.horizons['1']} scale={6} />
         </div>
         <div>
           <p className="mb-1 text-xs text-muted">Next 5 trading days</p>
-          <ForecastRange f={f.horizons['5']} scale={8} />
+          <ForecastRange f={f.horizons['5']} scale={12} />
         </div>
         <p className="text-xs leading-relaxed text-faint">
           {data.sample ? 'Sample data: the model has not run yet. ' : ''}

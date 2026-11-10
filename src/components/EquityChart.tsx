@@ -10,10 +10,14 @@ export function EquityChart({ height = 'h-48' }: { height?: string }) {
   const history = useStore((s) => s.equityHistory);
   const { equity, account } = usePortfolio();
 
-  if (!hydrated || history.length === 0) {
+  // Need at least an hour of history before a line says anything.
+  const spanMs = history.length > 0 ? Date.now() - history[0].t : 0;
+  if (!hydrated || spanMs < 60 * 60_000) {
     return (
-      <div className={`${height} flex items-center justify-center rounded-xl border border-dashed border-edge/20 text-center text-sm text-muted`}>
-        Your portfolio&apos;s value over time appears here once you start trading.
+      <div className="flex h-28 items-center justify-center rounded-xl border border-dashed border-edge/20 px-4 text-center text-sm text-muted">
+        {history.length === 0
+          ? "Your portfolio's value over time appears here once you start trading."
+          : 'Your value chart fills in as prices move. Check back after the next market session.'}
       </div>
     );
   }

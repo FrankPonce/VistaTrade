@@ -4,7 +4,7 @@
 
 <br>
 
-![Status](https://img.shields.io/badge/status-v2%20rebuild-30363d?style=for-the-badge&labelColor=161b22)
+![Status](https://img.shields.io/badge/status-live%20data%20·%20v2-30363d?style=for-the-badge&labelColor=161b22)
 ![Next.js](https://img.shields.io/badge/next.js-15-F2EDF7?style=for-the-badge&logo=nextdotjs&logoColor=white&labelColor=161b22)
 ![TypeScript](https://img.shields.io/badge/typescript-5-9B6BFF?style=for-the-badge&logo=typescript&logoColor=white&labelColor=161b22)
 ![Python](https://img.shields.io/badge/python-3.12-3CCFC6?style=for-the-badge&logo=python&logoColor=white&labelColor=161b22)
@@ -33,11 +33,17 @@ VistaTrade is a **paper-trading and learning platform**: trade real US stocks wi
 
 | Dashboard | Stock page |
 |---|---|
-| ![Dashboard](docs/screenshots/dashboard.jpg) | ![Stock page](docs/screenshots/stock.jpg) |
-| **Forecasts** | **Mobile** |
-| ![Forecasts](docs/screenshots/forecasts.jpg) | ![Mobile](docs/screenshots/mobile.jpg) |
+| ![Dashboard](docs/screenshots/dashboard.png) | ![Stock page](docs/screenshots/stock.png) |
+| **Forecasts** | **Lesson** |
+| ![Forecasts](docs/screenshots/forecasts.png) | ![Lesson](docs/screenshots/learn.png) |
 
-<sub>Screenshots taken in simulated-data mode (no API keys configured).</sub>
+<details>
+<summary><b>Mobile</b></summary>
+<br>
+<img src="docs/screenshots/mobile.png" alt="Mobile dashboard" width="320">
+</details>
+
+<sub>Real market data (Alpaca IEX + Finnhub), taken after the close on 9 Nov 2026 with a demo paper account.</sub>
 
 ---
 
@@ -128,10 +134,21 @@ flowchart LR
 
 ### Results
 
-> [!WARNING]
-> **Real-data results are pending** the first run with Alpaca keys. They will be written to [`ml/results/backtest.json`](ml/results/) and shown on the Forecasts page. Until then the app shows the synthetic run below, labelled as sample data.
+**Real data: 20 US stocks and ETFs, out-of-sample from Mar 2019 to Nov 2026.**
 
-**Leakage check: synthetic random-walk prices.** On data that is unpredictable by construction, the model must not beat the baselines. It doesn't, so nothing is leaking.
+| Horizon | Model direction | Always up | Edge 95% CI | Model MAE | No-change MAE | Always-up MAE | 10–90% coverage |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| 1 day | 52.2% | **52.7%** | −1.6 to +0.8 pts | 1.41% | 1.40% | **1.40%** | 75.9% |
+| 5 days | 53.9% | **55.4%** | −2.8 to −0.5 pts | 3.25% | 3.23% | **3.21%** | 74.7% |
+
+<sub>38,453 out-of-sample predictions per horizon · 31 walk-forward folds · data through 2026-11-09 · full output in <a href="ml/results/backtest.json"><code>ml/results/backtest.json</code></a></sub>
+
+> [!IMPORTANT]
+> **The model does not beat the trivial baselines.** On next-day direction it is statistically indistinguishable from "always up"; over 5 days it is measurably *worse* (the whole interval is below zero), because it sometimes predicts "down" in a market that mostly went up. Its average error is a hair worse than predicting no change. The uncertainty range is slightly too narrow, catching about 75% of outcomes instead of 80%.
+>
+> That is the expected result for public daily price features, and it's the point of the page: a well-built, leak-free model with honest evaluation shows how little short-term price data predicts.
+
+**Leakage check: synthetic random-walk prices.** On data that is unpredictable by construction, the model must not beat the baselines. It doesn't, so nothing is leaking. (Run with `python train.py --synthetic`.)
 
 | Horizon | Model direction | Always up | Edge 95% CI | Model MAE | No-change MAE | 10–90% coverage |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|

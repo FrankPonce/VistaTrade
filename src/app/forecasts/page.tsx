@@ -69,7 +69,7 @@ export default function ForecastsPage() {
                     <p className="text-sm font-medium">{f.symbol}</p>
                     <p className="hidden truncate text-xs text-muted sm:block">{findInUniverse(f.symbol)?.name}</p>
                   </Link>
-                  <ForecastRange f={f.horizons[horizon]} scale={horizon === '1' ? 4 : 8} />
+                  <ForecastRange f={f.horizons[horizon]} scale={horizon === '1' ? 6 : 12} />
                 </li>
               ))}
             </ul>

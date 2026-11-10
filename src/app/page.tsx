@@ -9,6 +9,7 @@ import { PortfolioSummary } from '@/components/PortfolioSummary';
 import { EquityChart } from '@/components/EquityChart';
 import { QuoteRows, Watchlist } from '@/components/Watchlist';
 import { AchievementsGrid } from '@/components/Achievements';
+import { PositionsTable } from '@/components/PositionsTable';
 import { LESSONS, lessonOfTheDay } from '@/lib/learn/lessons';
 import { UNIVERSE } from '@/lib/market/universe';
 import { useQuotes } from '@/lib/quotes';
@@ -22,6 +23,7 @@ export default function DashboardPage() {
         <div className="mt-6">
           <EquityChart />
         </div>
+        <Holdings />
       </Panel>
 
       <div className="grid gap-4 lg:gap-5">
@@ -93,6 +95,23 @@ function Movers() {
     .map((q) => q.symbol);
   if (ranked.length === 0) return <div className="h-40 animate-pulse rounded-xl bg-white/[0.03]" />;
   return <QuoteRows symbols={ranked} />;
+}
+
+function Holdings() {
+  const hydrated = useHydrated();
+  const count = useStore((s) => Object.keys(s.account.positions).length);
+  if (!hydrated || count === 0) return null;
+  return (
+    <div className="mt-6">
+      <div className="mb-2 flex items-center justify-between">
+        <p className="label">Holdings</p>
+        <Link href="/portfolio" className="text-xs text-muted hover:text-text">
+          Orders and history
+        </Link>
+      </div>
+      <PositionsTable />
+    </div>
+  );
 }
 
 function AchievementCount() {
