@@ -10,7 +10,7 @@
 ![Python](https://img.shields.io/badge/python-3.12-3CCFC6?style=for-the-badge&logo=python&logoColor=white&labelColor=161b22)
 ![LightGBM](https://img.shields.io/badge/model-LightGBM-F0609E?style=for-the-badge&labelColor=161b22)
 
-[**Features**](#-features) · [**Architecture**](#-architecture) · [**Model**](#-the-forecasting-model) · [**Quickstart**](#-quickstart) · [**Data sources**](#-data-sources) · [**Disclaimer**](#%EF%B8%8F-disclaimer)
+[**🌐 Live demo**](https://vista-trade.vercel.app) · [**Features**](#-features) · [**Architecture**](#-architecture) · [**Model**](#-the-forecasting-model) · [**Quickstart**](#-quickstart) · [**Data sources**](#-data-sources) · [**Disclaimer**](#%EF%B8%8F-disclaimer)
 
 </div>
 
@@ -25,6 +25,7 @@ VistaTrade is a **paper-trading and learning platform**: trade real US stocks wi
 | **Problem** | Beginners either learn with real money or with toy simulators that teach nothing about how markets actually behave. |
 | **Goal** | A realistic, free sandbox with live prices, honest mechanics and a course that ties every concept to something you can try. |
 | **The twist** | A forecasting model that is always shown next to simple baselines and its own backtest, to teach how little short-term prices can be predicted. |
+| **Live** | [vista-trade.vercel.app](https://vista-trade.vercel.app) · deployed on Vercel, redeploys on every push |
 | **Built by** | [Frank Ponce](https://github.com/FrankPonce) · [frankponce.dev](https://frankponce.dev) |
 | **Stack** | Next.js 15 · React 19 · TypeScript · Tailwind · Zustand · Recharts · Python · LightGBM · GitHub Actions |
 

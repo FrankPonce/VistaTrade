@@ -121,7 +121,7 @@ function KeyStats({ details, volume }: { details: StockDetails | null; volume?: 
     ['52-week low', details?.week52Low ? money(details.week52Low) : undefined],
     ['Dividend yield', details?.dividendYield !== undefined ? `${details.dividendYield.toFixed(2)}%` : undefined],
     ['Beta', details?.beta?.toFixed(2)],
-    ['Volume today', volume ? compact(volume) : undefined],
+    ['Volume today (IEX)', volume ? compact(volume) : undefined],
     ['Industry', details?.industry],
   ];
   const shown = stats.filter(([, v]) => v);
