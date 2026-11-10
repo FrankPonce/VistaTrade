@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T00:25:54+00:00",
+  "generatedAt": "2026-11-10T00:19:43+00:00",
   "dataThrough": "2026-11-09",
   "model": {
     "name": "LightGBM quantile regression (pooled across stocks)",
