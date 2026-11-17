@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-14T02:38:52+00:00",
-  "dataThrough": "2026-11-13",
+  "generatedAt": "2026-11-17T04:44:02+00:00",
+  "dataThrough": "2026-11-16",
   "sample": false,
   "model": {
     "name": "LightGBM quantile regression (pooled across stocks)",
@@ -26,391 +26,391 @@
   },
   "backtest": {
     "start": "2019-03-18",
-    "end": "2026-11-06",
+    "end": "2026-11-09",
     "folds": 31,
     "horizons": {
       "1": {
         "model": {
-          "directionAcc": 0.5240239458615304,
-          "mae": 0.014079453639194574
+          "directionAcc": 0.5263281128050367,
+          "mae": 0.014086730174348883
         },
         "baselines": {
           "noChange": {
-            "mae": 0.014044321706151393
+            "mae": 0.014047104731076567
           },
           "alwaysUp": {
-            "directionAcc": 0.5271212909942739,
-            "mae": 0.014022757202633357
+            "directionAcc": 0.5269524949268952,
+            "mae": 0.014025792859637823
           }
         },
-        "intervalCoverage": 0.7593491293177277,
+        "intervalCoverage": 0.7594220942598501,
         "edgeVsAlwaysUpCI95": [
-          -0.01274657406008832,
-          0.010021259468947276
+          -0.011243218640794809,
+          0.012879875040281936
         ],
-        "n": 38533
+        "n": 38553
       },
       "5": {
         "model": {
-          "directionAcc": 0.5390783650091122,
-          "mae": 0.03247044575933863
+          "directionAcc": 0.5380451753929426,
+          "mae": 0.032477303001305885
         },
         "baselines": {
           "noChange": {
-            "mae": 0.03227560726772241
+            "mae": 0.03227430655155861
           },
           "alwaysUp": {
-            "directionAcc": 0.5543608435303307,
-            "mae": 0.03206106932126794
+            "directionAcc": 0.5542833350681795,
+            "mae": 0.03206040677202614
           }
         },
-        "intervalCoverage": 0.7496424206173771,
+        "intervalCoverage": 0.748446962805084,
         "edgeVsAlwaysUpCI95": [
-          -0.027636465946058217,
-          -0.004025566394854791
+          -0.02886166668427051,
+          -0.004392405090753372
         ],
-        "n": 38453
+        "n": 38473
       }
     }
   },
   "forecasts": [
     {
       "symbol": "AAPL",
-      "asOf": "2026-11-13",
-      "lastClose": 356.27,
+      "asOf": "2026-11-16",
+      "lastClose": 352.78,
       "horizons": {
         "1": {
-          "predReturn": -3.4e-05,
-          "low": -0.019378,
-          "high": 0.01807
+          "predReturn": -0.002042,
+          "low": -0.020219,
+          "high": 0.017403
         },
         "5": {
-          "predReturn": 0.00253,
-          "low": -0.035102,
-          "high": 0.037836
+          "predReturn": 0.015117,
+          "low": -0.045126,
+          "high": 0.040563
         }
       }
     },
     {
       "symbol": "MSFT",
-      "asOf": "2026-11-13",
-      "lastClose": 523.88,
+      "asOf": "2026-11-16",
+      "lastClose": 517.99,
       "horizons": {
         "1": {
-          "predReturn": 0.000287,
-          "low": -0.024513,
-          "high": 0.024985
+          "predReturn": -0.002993,
+          "low": -0.022228,
+          "high": 0.020308
         },
         "5": {
-          "predReturn": 0.0033,
-          "low": -0.048455,
-          "high": 0.056086
+          "predReturn": 0.016068,
+          "low": -0.055137,
+          "high": 0.049718
         }
       }
     },
     {
       "symbol": "NVDA",
-      "asOf": "2026-11-13",
-      "lastClose": 162.85,
+      "asOf": "2026-11-16",
+      "lastClose": 156.14,
       "horizons": {
         "1": {
-          "predReturn": 0.002365,
-          "low": -0.051792,
-          "high": 0.062049
+          "predReturn": 0.004803,
+          "low": -0.040394,
+          "high": 0.042748
         },
         "5": {
-          "predReturn": 0.010922,
-          "low": -0.102412,
-          "high": 0.115175
+          "predReturn": 0.030147,
+          "low": -0.09906,
+          "high": 0.122185
         }
       }
     },
     {
       "symbol": "GOOGL",
-      "asOf": "2026-11-13",
-      "lastClose": 295.77,
+      "asOf": "2026-11-16",
+      "lastClose": 283.72,
       "horizons": {
         "1": {
-          "predReturn": -0.001363,
-          "low": -0.038179,
-          "high": 0.034985
+          "predReturn": -1e-06,
+          "low": -0.03331,
+          "high": 0.032471
         },
         "5": {
-          "predReturn": -0.0001,
-          "low": -0.075258,
-          "high": 0.065847
+          "predReturn": 0.019777,
+          "low": -0.08187,
+          "high": 0.088867
         }
       }
     },
     {
       "symbol": "META",
-      "asOf": "2026-11-13",
-      "lastClose": 641.69,
+      "asOf": "2026-11-16",
+      "lastClose": 626.41,
       "horizons": {
         "1": {
-          "predReturn": -0.001132,
-          "low": -0.029138,
-          "high": 0.026784
+          "predReturn": -0.002268,
+          "low": -0.025178,
+          "high": 0.026165
         },
         "5": {
-          "predReturn": -0.00172,
-          "low": -0.057295,
-          "high": 0.062955
+          "predReturn": 0.017269,
+          "low": -0.064641,
+          "high": 0.071149
         }
       }
     },
     {
       "symbol": "AMZN",
-      "asOf": "2026-11-13",
-      "lastClose": 266.66,
+      "asOf": "2026-11-16",
+      "lastClose": 257.75,
       "horizons": {
         "1": {
-          "predReturn": -0.000987,
-          "low": -0.025511,
-          "high": 0.022855
+          "predReturn": -0.000832,
+          "low": -0.0253,
+          "high": 0.022202
         },
         "5": {
-          "predReturn": 0.001502,
-          "low": -0.050211,
-          "high": 0.053378
+          "predReturn": 0.017539,
+          "low": -0.058289,
+          "high": 0.062192
         }
       }
     },
     {
       "symbol": "TSLA",
-      "asOf": "2026-11-13",
-      "lastClose": 390.22,
+      "asOf": "2026-11-16",
+      "lastClose": 379.74,
       "horizons": {
         "1": {
-          "predReturn": -0.000571,
-          "low": -0.039464,
-          "high": 0.035373
+          "predReturn": -0.000194,
+          "low": -0.030815,
+          "high": 0.031583
         },
         "5": {
-          "predReturn": 0.002098,
-          "low": -0.070789,
-          "high": 0.079405
+          "predReturn": 0.018098,
+          "low": -0.078471,
+          "high": 0.086208
         }
       }
     },
     {
       "symbol": "NFLX",
-      "asOf": "2026-11-13",
-      "lastClose": 62.15,
+      "asOf": "2026-11-16",
+      "lastClose": 60.75,
       "horizons": {
         "1": {
-          "predReturn": -0.001499,
-          "low": -0.028614,
-          "high": 0.027938
+          "predReturn": -0.000404,
+          "low": -0.024456,
+          "high": 0.03102
         },
         "5": {
-          "predReturn": 0.00069,
-          "low": -0.059727,
-          "high": 0.066341
+          "predReturn": 0.021558,
+          "low": -0.065301,
+          "high": 0.073271
         }
       }
     },
     {
       "symbol": "DIS",
-      "asOf": "2026-11-13",
-      "lastClose": 118.97,
+      "asOf": "2026-11-16",
+      "lastClose": 118.7,
       "horizons": {
         "1": {
-          "predReturn": 0.000116,
-          "low": -0.015859,
-          "high": 0.015957
+          "predReturn": -0.00214,
+          "low": -0.019543,
+          "high": 0.016929
         },
         "5": {
-          "predReturn": 0.002818,
-          "low": -0.028557,
-          "high": 0.030134
+          "predReturn": 0.014561,
+          "low": -0.039662,
+          "high": 0.037539
         }
       }
     },
     {
       "symbol": "NKE",
-      "asOf": "2026-11-13",
-      "lastClose": 37.99,
+      "asOf": "2026-11-16",
+      "lastClose": 38.26,
       "horizons": {
         "1": {
-          "predReturn": -0.00084,
-          "low": -0.02203,
-          "high": 0.021795
+          "predReturn": -0.002366,
+          "low": -0.026274,
+          "high": 0.023148
         },
         "5": {
-          "predReturn": 0.003138,
-          "low": -0.042271,
-          "high": 0.051917
+          "predReturn": 0.01808,
+          "low": -0.059653,
+          "high": 0.05662
         }
       }
     },
     {
       "symbol": "KO",
-      "asOf": "2026-11-13",
-      "lastClose": 99.25,
+      "asOf": "2026-11-16",
+      "lastClose": 99.48,
       "horizons": {
         "1": {
-          "predReturn": -0.000543,
-          "low": -0.013985,
-          "high": 0.01323
+          "predReturn": -0.002803,
+          "low": -0.017164,
+          "high": 0.014511
         },
         "5": {
-          "predReturn": 0.001474,
-          "low": -0.027818,
-          "high": 0.029655
+          "predReturn": 0.013775,
+          "low": -0.035843,
+          "high": 0.034492
         }
       }
     },
     {
       "symbol": "WMT",
-      "asOf": "2026-11-13",
-      "lastClose": 128.09,
+      "asOf": "2026-11-16",
+      "lastClose": 128.41,
       "horizons": {
         "1": {
-          "predReturn": -0.00075,
-          "low": -0.016592,
-          "high": 0.016446
+          "predReturn": -0.002449,
+          "low": -0.01968,
+          "high": 0.01688
         },
         "5": {
-          "predReturn": 0.002322,
-          "low": -0.030199,
-          "high": 0.033741
+          "predReturn": 0.01486,
+          "low": -0.03968,
+          "high": 0.037794
         }
       }
     },
     {
       "symbol": "JPM",
-      "asOf": "2026-11-13",
-      "lastClose": 346.19,
+      "asOf": "2026-11-16",
+      "lastClose": 338.21,
       "horizons": {
         "1": {
-          "predReturn": -0.000483,
-          "low": -0.017037,
-          "high": 0.014754
+          "predReturn": -0.002572,
+          "low": -0.023902,
+          "high": 0.018405
         },
         "5": {
-          "predReturn": 0.001989,
-          "low": -0.028922,
-          "high": 0.031401
+          "predReturn": 0.015575,
+          "low": -0.053554,
+          "high": 0.047688
         }
       }
     },
     {
       "symbol": "V",
-      "asOf": "2026-11-13",
-      "lastClose": 425.76,
+      "asOf": "2026-11-16",
+      "lastClose": 426.46,
       "horizons": {
         "1": {
-          "predReturn": -0.000415,
-          "low": -0.015054,
-          "high": 0.014759
+          "predReturn": -0.002647,
+          "low": -0.01915,
+          "high": 0.015706
         },
         "5": {
-          "predReturn": 0.00292,
-          "low": -0.027851,
-          "high": 0.030047
+          "predReturn": 0.014677,
+          "low": -0.041251,
+          "high": 0.035929
         }
       }
     },
     {
       "symbol": "JNJ",
-      "asOf": "2026-11-13",
-      "lastClose": 285.75,
+      "asOf": "2026-11-16",
+      "lastClose": 282.55,
       "horizons": {
         "1": {
-          "predReturn": -0.000377,
-          "low": -0.019652,
-          "high": 0.019318
+          "predReturn": -0.001929,
+          "low": -0.022718,
+          "high": 0.019774
         },
         "5": {
-          "predReturn": 0.000705,
-          "low": -0.038768,
-          "high": 0.038052
+          "predReturn": 0.014971,
+          "low": -0.04362,
+          "high": 0.043478
         }
       }
     },
     {
       "symbol": "UNH",
-      "asOf": "2026-11-13",
-      "lastClose": 407.46,
+      "asOf": "2026-11-16",
+      "lastClose": 412.02,
       "horizons": {
         "1": {
-          "predReturn": -0.000386,
-          "low": -0.01807,
-          "high": 0.018028
+          "predReturn": -0.002722,
+          "low": -0.018175,
+          "high": 0.014692
         },
         "5": {
-          "predReturn": 0.00283,
-          "low": -0.034704,
-          "high": 0.043947
+          "predReturn": 0.014039,
+          "low": -0.041324,
+          "high": 0.036741
         }
       }
     },
     {
       "symbol": "XOM",
-      "asOf": "2026-11-13",
-      "lastClose": 170.59,
+      "asOf": "2026-11-16",
+      "lastClose": 166.87,
       "horizons": {
         "1": {
-          "predReturn": -0.000379,
-          "low": -0.022438,
-          "high": 0.019635
+          "predReturn": -0.003604,
+          "low": -0.024298,
+          "high": 0.019134
         },
         "5": {
-          "predReturn": -0.000151,
-          "low": -0.036912,
-          "high": 0.040047
+          "predReturn": 0.015199,
+          "low": -0.058188,
+          "high": 0.049493
         }
       }
     },
     {
       "symbol": "CAT",
-      "asOf": "2026-11-13",
-      "lastClose": 600.2,
+      "asOf": "2026-11-16",
+      "lastClose": 570.49,
       "horizons": {
         "1": {
-          "predReturn": -0.000713,
-          "low": -0.043248,
-          "high": 0.040657
+          "predReturn": 0.003233,
+          "low": -0.037166,
+          "high": 0.038856
         },
         "5": {
-          "predReturn": 0.001108,
-          "low": -0.082975,
-          "high": 0.084488
+          "predReturn": 0.026289,
+          "low": -0.092412,
+          "high": 0.10476
         }
       }
     },
     {
       "symbol": "SPY",
-      "asOf": "2026-11-13",
-      "lastClose": 754.37,
+      "asOf": "2026-11-16",
+      "lastClose": 739.95,
       "horizons": {
         "1": {
-          "predReturn": -0.000159,
-          "low": -0.018196,
-          "high": 0.017851
+          "predReturn": -0.002455,
+          "low": -0.016046,
+          "high": 0.014669
         },
         "5": {
-          "predReturn": 0.003457,
-          "low": -0.033391,
-          "high": 0.046376
+          "predReturn": 0.015363,
+          "low": -0.043357,
+          "high": 0.042168
         }
       }
     },
     {
       "symbol": "QQQ",
-      "asOf": "2026-11-13",
-      "lastClose": 679.89,
+      "asOf": "2026-11-16",
+      "lastClose": 661.75,
       "horizons": {
         "1": {
-          "predReturn": -0.000384,
-          "low": -0.026024,
-          "high": 0.024273
+          "predReturn": -0.001254,
+          "low": -0.018426,
+          "high": 0.020565
         },
         "5": {
-          "predReturn": 0.002367,
-          "low": -0.053846,
-          "high": 0.06047
+          "predReturn": 0.020547,
+          "low": -0.054555,
+          "high": 0.058739
         }
       }
     }
